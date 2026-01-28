@@ -4,22 +4,16 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
     {
-        name: "Shehan Perera",
-        uni: "Monash University, Australia",
-        text: "Edu Globe made my dream of studying in Australia a reality. Their guidance on visa processing was exceptional.",
-        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        name: "Nadeesha Perera",
+        uni: "Satisfied Student",
+        text: "Their expert team provided personalized support, making the process seamless and stress-free.",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     {
-        name: "Nethmi Silva",
-        uni: "University of Toronto, Canada",
-        text: "From choosing the right course to settling in Canada, the team was with me every step of the way.",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-    },
-    {
-        name: "Ahmed Rizwan",
-        uni: "University of Manchester, UK",
-        text: "Professional, transparent, and supportive. I highly recommend their services to anyone looking to study abroad.",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+        name: "Tharindu Fernando",
+        uni: "Satisfied Student",
+        text: "Detailed advice and support helped me navigate every step of studying abroad smoothly.",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     }
 ];
 

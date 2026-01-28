@@ -1,64 +1,72 @@
-import React, { useState } from 'react';
+import React from 'react'; // Force Rebuild
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import Home from './components/Home';
+import About from './components/About';
+import Team from './components/Team';
+import Destinations from './components/Destinations';
+import PopularCourses from './components/PopularCourses';
+import CourseSearch from './components/CourseSearch';
+import Services from './components/Services';
+import Events from './components/Events';
+import Testimonials from './components/Testimonials';
 import Terms from './components/Terms';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import { ModalProvider, useModal } from './components/ModalContext';
 
-// Layout wrapper to include Navbar/Footer
-const Layout = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+// ScrollToTop component to handle scroll position on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
-  return (
-    <div className="app">
-      {/* Navbar is inside Home for now because of prop drilling pattern in original, 
-            but standard is to have it in Layout. 
-            However, Home component ALREADY has Navbar inside it from my copy-paste.
-            Wait, I should remove Navbar/Footer from Home.jsx if I put them in Layout.
-            OR leave Home.jsx as "Page with Navbar" and Terms/Privacy as "Pages with Navbar".
-            Let's check Home.jsx again.
-        */}
-      {children}
-    </div>
-  );
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
 };
 
-// Actually, looking at Home.jsx, it has Navbar and Footer.
-// I should allow Home.jsx to manage its own layout or refactor.
-// Simpler for now: Privacy and Terms will duplicate the Layout structure (Navbar + Content + Footer).
-// Or better: Let's clean up Home.jsx to NOT have Navbar/Footer, and put them in App.
-// But Home.jsx has complex state passing to Navbar (onOpenModal).
-// I'll stick to: Home manages itself. Terms/Privacy will use a Wrapper that has Navbar/Footer.
-
-const PageWrapper = ({ Component }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+const LayoutSource = ({ children }) => {
+  const { isModalOpen, closeModal } = useModal();
 
   return (
     <div className="app">
-      <Navbar onOpenModal={openModal} />
-      <main>
-        <Component />
+      <Navbar />
+      <main style={{ paddingTop: '0' }}>
+        {children}
       </main>
       <Footer />
       <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
-  )
-}
+  );
+};
+
+const Layout = ({ children }) => {
+  return (
+    <ModalProvider>
+      <LayoutSource>{children}</LayoutSource>
+    </ModalProvider>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/terms" element={<PageWrapper Component={Terms} />} />
-        <Route path="/privacy" element={<PageWrapper Component={PrivacyPolicy} />} />
-      </Routes>
+      <ScrollToTop />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/destinations" element={<div className="section-padding"><Destinations /></div>} />
+          <Route path="/courses" element={<div className="section-padding"><PopularCourses /><div className="container"><CourseSearch /></div></div>} />
+          <Route path="/services" element={<div className="section-padding"><Services /></div>} />
+          <Route path="/team" element={<div className="section-padding"><Team /></div>} />
+          <Route path="/testimonials" element={<div className="section-padding"><Testimonials /></div>} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }

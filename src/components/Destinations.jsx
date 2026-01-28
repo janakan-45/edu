@@ -24,14 +24,24 @@ const destinations = [
         desc: 'Adventure and top-tier research institutions.'
     },
     {
-        country: 'Dubai',
-        image: 'https://images.unsplash.com/photo-1512453979798-5ea932a23518?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        desc: 'Global business hub with modern campuses.'
+        country: 'Europe',
+        image: 'https://images.unsplash.com/photo-1467269204594-9661b133dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        desc: 'Diverse cultures and affordable study options.'
     },
     {
         country: 'Malaysia',
         image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
         desc: 'Affordable education in a multicultural setting.'
+    },
+    {
+        country: 'Dubai',
+        image: 'https://images.unsplash.com/photo-1512453979798-5ea932a23518?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        desc: 'Global business hub with modern campuses.'
+    },
+    {
+        country: 'Singapore',
+        image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        desc: 'Innovation hub with world-ranked universities.'
     }
 ];
 

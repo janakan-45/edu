@@ -5,33 +5,33 @@ import { GraduationCap, FileCheck, Compass, Plane, BookOpen, Users } from 'lucid
 const services = [
     {
         icon: <GraduationCap size={32} />,
-        title: 'University Admission',
-        desc: 'Expert guidance on selecting the right course and university that matches your career goals.'
+        title: 'University & Course Selection',
+        desc: 'Tailored advice to choose programs matching student goals.'
+    },
+    {
+        icon: <Users size={32} />,
+        title: 'Application & Admission Support',
+        desc: 'End-to-end assistance from document preparation to submission.'
     },
     {
         icon: <FileCheck size={32} />,
         title: 'Visa Assistance',
-        desc: 'Comprehensive support for student visa applications, financial documentation, and interview prep.'
-    },
-    {
-        icon: <Compass size={32} />,
-        title: 'Career Counselling',
-        desc: 'Personalized sessions to understand your strengths and map out the best career path.'
-    },
-    {
-        icon: <Plane size={32} />,
-        title: 'Pre-Departure Briefing',
-        desc: 'Get ready for your new life abroad with our essential travel and settlement advice.'
+        desc: 'Guidance on documentation, filing procedures, and interview preparation.'
     },
     {
         icon: <BookOpen size={32} />,
-        title: 'IELTS/PTE Training',
-        desc: 'Rigorous coaching to help you achieve the required language proficiency scores.'
+        title: 'Test Preparation Classes',
+        desc: 'IELTS, PTE, and other language tests.'
     },
     {
-        icon: <Users size={32} />,
-        title: 'Scholarship Guidance',
-        desc: 'Help finding and applying for scholarships to reduce your financial burden.'
+        icon: <Compass size={32} />,
+        title: 'Career Counseling',
+        desc: 'Advice based on individual strengths and aspirations.'
+    },
+    {
+        icon: <Plane size={32} />,
+        title: 'Pre-Departure Guidance',
+        desc: 'Tips and planning before leaving for overseas study.'
     }
 ];
 
