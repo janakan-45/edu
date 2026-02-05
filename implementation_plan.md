@@ -39,7 +39,7 @@ Content source: Edu Globe Lanka (Instagram/Search).
 5.  **Why Choose Us**:
     -   Trust badges, years of experience.
 6.  **Contact/Footer**:
-    -   Phone: +94 77 818 1819
+    -   Phone: +94 701421551
     -   Address: World Trade Center, Colombo.
 
 ## detailed Steps

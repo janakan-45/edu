@@ -180,8 +180,7 @@ const Hero = () => {
                 }
 
                 /* Desktop Styles */
-                @media (min-width: 769px) {
-                    .hero-section {
+                   .hero-section {
                         min-height: 100vh;
                         padding-bottom: 0;
                         align-items: center;
@@ -198,6 +197,7 @@ const Hero = () => {
                         height: 100%;
                         width: 100%;
                         object-fit: contain; /* Show full image without cropping */
+                        object-position: center top; /* Align image to top to keep text consistent */
                         z-index: 0; /* Base layer */
                     }
 
@@ -216,7 +216,8 @@ const Hero = () => {
 
                     .hero-buttons {
                         justify-content: flex-start; /* Left align on desktop */
-                        margin-top: 5rem;
+                        margin-top: 18rem; /* Pushed down to clear image text */
+                        margin-left: 2rem; /* Add some left spacing */
                     }
 
                     .hero-stats {
@@ -248,7 +249,7 @@ const Hero = () => {
                     }
                     
                     .hero-main {
-                       max-width: 800px;
+                       max-width: 1000px; /* Increased max-width */
                        padding-top: 0; 
                     }
                 }

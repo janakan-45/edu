@@ -65,13 +65,13 @@ const Footer = () => {
                         <li style={{ display: 'flex', gap: '1rem' }}>
                             <Phone size={20} style={{ flexShrink: 0, color: 'var(--accent)' }} />
                             <div>
-                                <a href="tel:+94778181819" style={{ display: 'block' }}>+94 77 818 1819</a>
+                                <a href="tel:+94778181819" style={{ display: 'block' }}>+94 70 142 1551</a>
                                 <a href="tel:+94775569175" style={{ display: 'block' }}>+94 77 556 9175</a>
                             </div>
                         </li>
                         <li style={{ display: 'flex', gap: '1rem' }}>
                             <Mail size={20} style={{ flexShrink: 0, color: 'var(--accent)' }} />
-                            <a href="mailto:info@eduglobe.lk">info@eduglobe.lk</a>
+                            <a href="mailto:eduglobelankaconsultancy@gmail.com">eduglobelankaconsultancy@gmail.com</a>
                         </li>
                     </ul>
                 </div>

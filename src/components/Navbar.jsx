@@ -64,8 +64,7 @@ const Navbar = () => {
           flexShrink: 0,
           textDecoration: 'none'
         }}>
-          <Globe className="w-8 h-8" color="var(--secondary)" />
-          <span>Eduglobe International</span>
+          <img src="/logo.png" alt="Eduglobe International" style={{ height: '45px', width: 'auto' }} />
         </Link>
 
         {/* Desktop Menu */}
