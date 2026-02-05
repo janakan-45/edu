@@ -2,119 +2,254 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Globe } from 'lucide-react';
 import { useModal } from '../components/ModalContext';
+import Counter from './Counter';
 
 const Hero = () => {
     const { openModal } = useModal();
 
     return (
-        <section id="home" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px', paddingBottom: '4rem' }}>
-            {/* Background Image with Overlay */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundImage: 'url("/home.png")',
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    backgroundColor: '#eeffff', // Fallback/filler color matching sky blue vibe often found in eduglobe branding if logical, or just clean
-                    zIndex: -2,
-                }}
-            />
-            {/* Subtle overlay for better button visibility if needed, or remove if image is self-sufficient */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: 'rgba(0,0,0,0.1)', // Very light overlay
-                    zIndex: -1,
-                }}
+        <section id="home" className="hero-section">
+            {/* Hero Image */}
+            <img
+                src="/home.png"
+                alt="Study Abroad"
+                className="hero-image"
             />
 
-            <div className="container" style={{ position: 'relative', zIndex: 1, color: 'white', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
+            <div className="overlay-gradient desktop-only"></div>
+
+            <div className="container hero-content-wrapper">
                 <motion.div
                     className="hero-main"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '800px', marginTop: '10rem' }} // Push buttons down to align with empty space in design likely
                 >
-                    {/* Hiding text as it is in the banner image, but keeping semantics if possible, or just removing to be clean as requested */}
+                    {/* Hidden text for SEO/Accessibility */}
                     <div style={{ display: 'none' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.1)', padding: '0.5rem 1rem', borderRadius: '50px', marginBottom: '1.5rem', backdropFilter: 'blur(5px)' }}>
-                            <Globe size={16} color="var(--secondary)" />
-                            <span style={{ fontSize: '0.9rem', fontWeight: '500' }}>Eduglobe International (Pvt) Ltd</span>
-                        </div>
-
-                        <h1 style={{ fontSize: '3.5rem', lineHeight: '1.1', marginBottom: '1.5rem', color: 'white' }}>
-                            Unlock Your Dream of <span style={{ color: 'var(--secondary)' }}>Global Education</span>
-                        </h1>
-
-                        <p style={{ fontSize: '1.125rem', color: '#e2e8f0', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px' }}>
-                            To empower students with personalized, transparent, and expert guidance that simplifies the global education journey — from university selection and application to visa assistance.
-                        </p>
+                        <h1>Unlock Your Dream of Global Education</h1>
+                        <p>Eduglobe International (Pvt) Ltd</p>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '5rem' }}>
-                        <button onClick={openModal} className="btn btn-primary" style={{ padding: '1rem 2rem', boxShadow: '0 4px 14px 0 rgba(0,0,0,0.39)' }}>
+                    <div className="hero-buttons">
+                        <button onClick={openModal} className="btn btn-primary shadow-btn">
                             Book Free Consultation
                         </button>
-                        <a href="/destinations" className="btn btn-outline" style={{ padding: '1rem 2rem', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(5px)' }}>
+                        <a href="/destinations" className="btn btn-outline frosted-btn">
                             Explore Destinations <ArrowRight size={18} />
                         </a>
                     </div>
 
                 </motion.div>
-
-                {/* Stats section - Keeping as it adds value at bottom */}
-                <motion.div
-                    className="hero-stats"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    style={{
-                        marginTop: 'auto', // Push to bottom
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        width: '100%',
-                        maxWidth: '1000px',
-                        borderTop: '1px solid rgba(255,255,255,0.2)',
-                        paddingTop: '2rem',
-                        marginBottom: '2rem'
-                    }}
-                >
-                    <div>
-                        <h3 style={{ fontSize: '3.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem', lineHeight: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>10+</h3>
-                        <p style={{ color: 'white', fontSize: '1.25rem', fontWeight: '500', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>Years Experience</p>
-                    </div>
-                    <div>
-                        <h3 style={{ fontSize: '3.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem', lineHeight: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>500+</h3>
-                        <p style={{ color: 'white', fontSize: '1.25rem', fontWeight: '500', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>Students Placed</p>
-                    </div>
-                    <div>
-                        <h3 style={{ fontSize: '3.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem', lineHeight: 1, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>100%</h3>
-                        <p style={{ color: 'white', fontSize: '1.25rem', fontWeight: '500', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>Visa Success Rate</p>
-                    </div>
-                </motion.div>
             </div>
 
+            {/* Stats section */}
+            <motion.div
+                className="hero-stats"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
+                <div className="container">
+                    <div className="stats-grid">
+                        <div className="stat-item">
+                            <h3 className="stat-number">
+                                <Counter value={10} suffix="+" />
+                            </h3>
+                            <p className="stat-label">Years Experience</p>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="stat-item">
+                            <h3 className="stat-number">
+                                <Counter value={500} suffix="+" />
+                            </h3>
+                            <p className="stat-label">Students Placed</p>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="stat-item">
+                            <h3 className="stat-number">
+                                <Counter value={100} suffix="%" />
+                            </h3>
+                            <p className="stat-label">Visa Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+
             <style>{`
-                @media (max-width: 768px) {
-                    /* On mobile, standard cover might crop text. 
-                       We might want to adjust position or size, 
-                       but cover is usually best for full height heroes. */
-                    .hero-main {
-                        margin-top: 5rem !important;
+                .hero-section {
+                    position: relative;
+                    padding-top: 80px; /* Navbar height */
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #eeffff;
+                    z-index: 0; /* Create stacking context */
+                }
+
+                .hero-image {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: contain;
+                    /* Ensure image is not hidden behind background */
+                    position: relative; 
+                    z-index: 0;
+                }
+
+                .hero-content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 100%;
+                    position: relative;
+                    z-index: 2; /* Clearly above image */
+                }
+
+                .hero-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                    margin-top: 2rem;
+                    justify-content: center; /* Center buttons on mobile */
+                }
+
+                .hero-stats {
+                    position: relative;
+                    background-color: white;
+                    padding: 2rem 0;
+                    border-top: 4px solid var(--secondary);
+                    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+                    z-index: 10;
+                    margin-top: auto; /* Push to bottom if flex container */
+                }
+
+                .stats-grid {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+                }
+
+                .stat-item {
+                    text-align: center;
+                }
+
+                .stat-number {
+                    font-size: 2.5rem; /* Smoother responsive font */
+                    font-weight: 800;
+                    color: var(--accent);
+                    margin-bottom: 0;
+                    line-height: 1;
+                }
+
+                .stat-label {
+                    color: var(--primary);
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .stat-divider {
+                    width: 1px;
+                    height: 60px;
+                    background: #cbd5e1;
+                    display: none;
+                }
+
+                .desktop-only { display: none; }
+                
+                .shadow-btn {
+                    padding: 1rem 2rem;
+                    box-shadow: 0 4px 14px 0 rgba(0,0,0,0.39);
+                }
+                
+                .frosted-btn {
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: var(--primary);
+                    border: 2px solid var(--primary);
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                }
+                
+                .frosted-btn:hover {
+                    background: var(--primary);
+                    color: white;
+                }
+
+                /* Desktop Styles */
+                @media (min-width: 769px) {
+                    .hero-section {
+                        min-height: 100vh;
+                        padding-bottom: 0;
+                        align-items: center;
+                        justify-content: center;
+                        display: block; /* Reset flex for relative positioning context */
                     }
-                     .hero-stats {
-                        flex-direction: column;
-                        gap: 2rem;
+
+                    .hero-image {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain; /* Show full image without cropping */
+                        z-index: 0; /* Base layer */
+                    }
+
+                    .overlay-gradient {
+                        display: none; /* No overlay on contained image to avoid masking whitespace */
+                    }
+                    
+                    .hero-content-wrapper {
+                        position: relative;
+                        height: 100%; /* Full height to allow positioning */
+                        min-height: 100vh; /* Match section */
+                        z-index: 2; /* Above overlay */
+                        justify-content: center;
+                        padding-bottom: 15rem; /* Space for stats */
+                    }
+
+                    .hero-buttons {
+                        justify-content: flex-start; /* Left align on desktop */
+                        margin-top: 5rem;
+                    }
+
+                    .hero-stats {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        background-color: rgba(255, 255, 255, 0.95);
+                        backdrop-filter: blur(10px);
+                        z-index: 10;
+                    }
+
+                    .stat-divider { display: block; }
+
+                    .stat-number { font-size: 3.5rem; }
+                    .stat-label { font-size: 1.1rem; }
+                    
+                    /* Override frosted btn for desktop (optional to keep it looking good on image) */
+                    /* Making it solid white/transparent with primary border ensuring visibility */
+                    .frosted-btn {
+                        background: rgba(255, 255, 255, 0.9); 
+                        border-color: white;
+                        color: var(--primary);
+                    }
+                    .frosted-btn:hover {
+                        background: white;
+                        color: var(--primary);
+                        transform: translateY(-2px);
+                    }
+                    
+                    .hero-main {
+                       max-width: 800px;
+                       padding-top: 0; 
                     }
                 }
             `}</style>
