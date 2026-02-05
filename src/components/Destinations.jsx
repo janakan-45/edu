@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const destinations = [
     {
         country: 'Australia',
-        image: 'https://images.unsplash.com/photo-1523482580638-f148771cb8ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        image: '/aus.jpg',
         desc: 'World-class universities and vibrant lifestyle.'
     },
     {
@@ -20,13 +21,13 @@ const destinations = [
     },
     {
         country: 'New Zealand',
-        image: 'https://images.unsplash.com/photo-1578559099039-556bc5cf3553?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        image: '/new.jpg',
         desc: 'Adventure and top-tier research institutions.'
     },
     {
-        country: 'Europe',
-        image: 'https://images.unsplash.com/photo-1467269204594-9661b133dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        desc: 'Diverse cultures and affordable study options.'
+        country: 'USA',
+        image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        desc: 'Home to many of the world\'s top-ranked universities.'
     },
     {
         country: 'Malaysia',
@@ -35,7 +36,7 @@ const destinations = [
     },
     {
         country: 'Dubai',
-        image: 'https://images.unsplash.com/photo-1512453979798-5ea932a23518?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        image: '/dubai.jpg',
         desc: 'Global business hub with modern campuses.'
     },
     {
@@ -58,49 +59,50 @@ const Destinations = () => {
 
                 <div className="grid grid-3" style={{ gap: '2rem' }}>
                     {destinations.map((dest, index) => (
-                        <motion.div
-                            key={dest.country}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -5 }}
-                            style={{
-                                position: 'relative',
-                                borderRadius: 'var(--radius-lg)',
-                                overflow: 'hidden',
-                                height: '350px',
-                                cursor: 'pointer',
-                                boxShadow: 'var(--shadow-md)'
-                            }}
-                            className="destination-card"
-                        >
-                            <img
-                                src={dest.image}
-                                alt={dest.country}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
-                                className="card-img"
-                            />
-                            <div
+                        <Link to={`/destinations/${dest.country}`} key={dest.country} style={{ textDecoration: 'none', display: 'block' }}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -5 }}
                                 style={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    padding: '2rem',
-                                    background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                                    color: 'white'
+                                    position: 'relative',
+                                    borderRadius: 'var(--radius-lg)',
+                                    overflow: 'hidden',
+                                    height: '350px',
+                                    cursor: 'pointer',
+                                    boxShadow: 'var(--shadow-md)'
                                 }}
+                                className="destination-card"
                             >
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <h3 style={{ fontSize: '1.5rem', color: 'white' }}>{dest.country}</h3>
-                                    <div style={{ background: 'white', borderRadius: '50%', padding: '0.5rem' }}>
-                                        <ArrowUpRight size={20} color="var(--primary)" />
+                                <img
+                                    src={dest.image}
+                                    alt={dest.country}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                                    className="card-img"
+                                />
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        padding: '2rem',
+                                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                                        color: 'white'
+                                    }}
+                                >
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <h3 style={{ fontSize: '1.5rem', color: 'white' }}>{dest.country}</h3>
+                                        <div style={{ background: 'white', borderRadius: '50%', padding: '0.5rem' }}>
+                                            <ArrowUpRight size={20} color="var(--primary)" />
+                                        </div>
                                     </div>
+                                    <p style={{ color: 'rgba(255,255,255,0.9)', marginTop: '0.5rem', fontSize: '0.95rem' }}>{dest.desc}</p>
                                 </div>
-                                <p style={{ color: 'rgba(255,255,255,0.9)', marginTop: '0.5rem', fontSize: '0.95rem' }}>{dest.desc}</p>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>

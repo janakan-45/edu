@@ -10,6 +10,7 @@ import Destinations from './components/Destinations';
 import PopularCourses from './components/PopularCourses';
 import CourseSearch from './components/CourseSearch';
 import Services from './components/Services';
+import CountryDetails from './components/CountryDetails';
 import Events from './components/Events';
 import Testimonials from './components/Testimonials';
 import Terms from './components/Terms';
@@ -59,6 +60,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/destinations" element={<div className="section-padding"><Destinations /></div>} />
+          <Route path="/destinations/:countryName" element={<CountryDetails />} />
           <Route path="/courses" element={<div className="section-padding"><PopularCourses /><div className="container"><CourseSearch /></div></div>} />
           <Route path="/services" element={<div className="section-padding"><Services /></div>} />
           <Route path="/team" element={<div className="section-padding"><Team /></div>} />

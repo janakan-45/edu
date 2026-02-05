@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Hero from './Hero';
 import { MousePointerClick } from 'lucide-react';
 import { useModal } from './ModalContext';
@@ -31,7 +32,7 @@ const Home = () => {
                                 </li>
                             ))}
                         </ul>
-                        <a href="/about" className="btn btn-outline">Read More About Us</a>
+                        <Link to="/about" className="btn btn-outline">Read More About Us</Link>
                     </div>
                     <div style={{ position: 'relative' }}>
                         <div style={{ position: 'absolute', top: -20, right: -20, width: '100px', height: '100px', background: 'var(--bg-light)', zIndex: -1, borderRadius: '50%' }} />
@@ -67,7 +68,7 @@ const Home = () => {
                         ))}
                     </div>
                     <div className="text-center mt-8" style={{ marginTop: '3rem' }}>
-                        <a href="/services" className="btn btn-secondary">View All Services</a>
+                        <Link to="/services" className="btn btn-secondary">View All Services</Link>
                     </div>
                 </div>
             </section>
@@ -81,27 +82,29 @@ const Home = () => {
                     </div>
                     <div className="grid grid-4" style={{ gap: '1.5rem' }}>
                         {[
-                            { name: 'Australia', desc: 'World-class universities and vibrant lifestyle.', image: 'https://picsum.photos/seed/australia/800/600' },
-                            { name: 'New Zealand', desc: 'Adventure and top-tier research institutions.', image: 'https://picsum.photos/seed/nz/800/600' },
-                            { name: 'Europe', desc: 'Diverse cultures and affordable study options.', image: 'https://picsum.photos/seed/europe/800/600' },
-                            { name: 'Dubai', desc: 'Global business hub with modern campuses.', image: 'https://picsum.photos/seed/dubai/800/600' }
+                            { name: 'Australia', desc: 'World-class universities and vibrant lifestyle.', image: '/aus.jpg' },
+                            { name: 'New Zealand', desc: 'Adventure and top-tier research institutions.', image: '/new.jpg' },
+                            { name: 'USA', desc: 'Home to many of the world\'s top-ranked universities.', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                            { name: 'Dubai', desc: 'Global business hub with modern campuses.', image: '/dubai.jpg' }
                         ].map((dest) => (
-                            <div key={dest.name} style={{ position: 'relative', height: '300px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer' }} className="destination-card">
-                                <img
-                                    src={dest.image}
-                                    alt={dest.name}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
-                                    className="card-img"
-                                />
-                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.5rem' }}>
-                                    <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{dest.name}</h3>
-                                    <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem' }}>{dest.desc}</p>
+                            <Link to={`/destinations/${dest.name}`} key={dest.name} style={{ display: 'block', textDecoration: 'none' }}>
+                                <div style={{ position: 'relative', height: '300px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer' }} className="destination-card">
+                                    <img
+                                        src={dest.image}
+                                        alt={dest.name}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                                        className="card-img"
+                                    />
+                                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.5rem' }}>
+                                        <h3 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{dest.name}</h3>
+                                        <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem' }}>{dest.desc}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                     <div className="text-center mt-8" style={{ marginTop: '3rem' }}>
-                        <a href="/destinations" className="btn btn-outline">Explore All Destinations</a>
+                        <Link to="/destinations" className="btn btn-outline">Explore All Destinations</Link>
                     </div>
                 </div>
                 <style>{`
@@ -129,7 +132,7 @@ const Home = () => {
                         <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Satisfied Student</span>
                     </div>
                     <div className="text-center mt-8" style={{ marginTop: '2rem' }}>
-                        <a href="/testimonials" style={{ color: 'var(--secondary)', fontWeight: '600', textDecoration: 'none' }}>Read More Success Stories &rarr;</a>
+                        <Link to="/testimonials" style={{ color: 'var(--secondary)', fontWeight: '600', textDecoration: 'none' }}>Read More Success Stories &rarr;</Link>
                     </div>
                 </div>
             </section>
