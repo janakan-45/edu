@@ -52,11 +52,7 @@ const Process = () => {
                     ))}
                 </div>
             </div>
-            <style>{`
-        @media (max-width: 768px) {
-          .grid-4 { grid-template-columns: 1fr; }
-        }
-      `}</style>
+
         </section>
     );
 };

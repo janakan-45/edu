@@ -121,11 +121,7 @@ const Team = () => {
                     </div>
                 </div>
             </div>
-            <style>{`
-                @media (max-width: 768px) {
-                  .grid-3 { grid-template-columns: 1fr; }
-                }
-              `}</style>
+
         </section>
     );
 };

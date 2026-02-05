@@ -58,9 +58,6 @@ const PopularCourses = () => {
           border-color: var(--secondary);
           box-shadow: var(--shadow-md);
         }
-        @media (max-width: 768px) {
-          .grid-3 { grid-template-columns: 1fr; }
-        }
       `}</style>
         </section>
     );

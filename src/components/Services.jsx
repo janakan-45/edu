@@ -78,9 +78,6 @@ const Services = () => {
           box-shadow: var(--shadow-xl);
           border-color: var(--secondary);
         }
-        @media (max-width: 768px) {
-          .grid-3 { grid-template-columns: 1fr; }
-        }
       `}</style>
         </section>
     );

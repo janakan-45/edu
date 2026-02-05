@@ -110,9 +110,6 @@ const Destinations = () => {
         .destination-card:hover .card-img {
           transform: scale(1.1);
         }
-        @media (max-width: 768px) {
-          .grid-3 { grid-template-columns: 1fr; }
-        }
       `}</style>
         </section>
     );

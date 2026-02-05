@@ -16,7 +16,7 @@ const Hero = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    backgroundImage: 'url("/home-banner.png")',
+                    backgroundImage: 'url("/home.png")',
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
@@ -39,6 +39,7 @@ const Hero = () => {
 
             <div className="container" style={{ position: 'relative', zIndex: 1, color: 'white', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
                 <motion.div
+                    className="hero-main"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -73,6 +74,7 @@ const Hero = () => {
 
                 {/* Stats section - Keeping as it adds value at bottom */}
                 <motion.div
+                    className="hero-stats"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -107,10 +109,10 @@ const Hero = () => {
                     /* On mobile, standard cover might crop text. 
                        We might want to adjust position or size, 
                        but cover is usually best for full height heroes. */
-                    .container > motion.div:first-child {
+                    .hero-main {
                         margin-top: 5rem !important;
                     }
-                     .container > motion.div:last-child {
+                     .hero-stats {
                         flex-direction: column;
                         gap: 2rem;
                     }

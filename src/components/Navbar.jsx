@@ -52,7 +52,6 @@ const Navbar = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         maxWidth: '1400px',
-        padding: '0 2rem'
       }}>
         {/* Logo */}
         <Link to="/" style={{
@@ -110,9 +109,9 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="mobile-toggle"
+          className="mobile-toggle hidden-desktop"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{ color: 'var(--text-main)', display: 'none' }} // Hidden by default, shown in media query
+          style={{ color: 'var(--text-main)' }}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -155,10 +154,6 @@ const Navbar = () => {
         )}
       </AnimatePresence>
       <style>{`
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .mobile-toggle { display: block !important; }
-        }
         .nav-link:hover { color: var(--secondary) !important; }
       `}</style>
     </nav>

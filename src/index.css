@@ -147,6 +147,7 @@ ul {
   gap: 2rem;
 }
 
+
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: repeat(2, 1fr);
@@ -158,6 +159,35 @@ ul {
 
   .grid-4 {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsiveness Helpers */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  
+  h1 {
+    font-size: 2.25rem !important; /* Scale down large headers */
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none !important;
   }
 }
 

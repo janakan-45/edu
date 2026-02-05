@@ -102,9 +102,7 @@ const Footer = () => {
           color: var(--accent);
           padding-left: 5px;
         }
-        @media (max-width: 768px) {
-          .grid-4 { grid-template-columns: 1fr; }
-        }
+
       `}</style>
         </footer >
     );

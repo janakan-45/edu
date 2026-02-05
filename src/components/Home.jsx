@@ -13,7 +13,7 @@ const Home = () => {
 
             {/* About Preview Section */}
             <section className="section">
-                <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+                <div className="container grid grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
                     <div>
                         <div style={{ display: 'inline-block', padding: '0.5rem 1rem', background: 'var(--bg-light)', color: 'var(--secondary)', borderRadius: '50px', fontSize: '0.9rem', fontWeight: '600', marginBottom: '1rem' }}>
                             About Eduglobe
@@ -110,12 +110,6 @@ const Home = () => {
                 <style>{`
                     .destination-card:hover .card-img {
                         transform: scale(1.1);
-                    }
-                    @media (max-width: 768px) {
-                        .grid-4 { grid-template-columns: 1fr 1fr; }
-                    }
-                     @media (max-width: 480px) {
-                        .grid-4 { grid-template-columns: 1fr; }
                     }
                 `}</style>
             </section>
